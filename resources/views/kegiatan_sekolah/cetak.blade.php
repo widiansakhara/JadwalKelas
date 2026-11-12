@@ -4,7 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda & Kegiatan Sekolah</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80',
+                            500: '#16a34a', 600: '#15803d', 700: '#166534', 800: '#14532d', 900: '#064e3b', 950: '#052e16',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @media print {
@@ -29,11 +44,15 @@
     </div>
 
     <div class="max-w-5xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-        <div class="border-b-2 border-slate-900 pb-4 mb-6 text-center">
-            <h1 class="text-xl font-extrabold uppercase tracking-wider text-slate-900">SMA / SMK NEGERI 1 AKADEMIK</h1>
-            <p class="text-xs text-slate-600 mt-0.5">Jl. Pendidikan No. 123 Kota Pelajar, Telepon (021) 1234567</p>
-            <h2 class="text-base font-bold text-teal-800 mt-2 uppercase tracking-wide">AGENDA & KEGIATAN RESMI SEKOLAH</h2>
-            <p class="text-xs text-slate-500 font-medium">Laporan Pemakaian Sarana & Alokasi Ruangan Khusus</p>
+        <div class="border-b-2 border-slate-900 pb-4 mb-6 flex items-center justify-center relative">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo Miftahul Huda" class="w-16 h-16 object-contain absolute left-4">
+            <div class="text-center px-20">
+                <p class="text-xs font-bold uppercase tracking-widest text-teal-800">YAYASAN MIFTAHUL HUDA SIWATU WONOSOBO</p>
+                <h1 class="text-xl font-extrabold uppercase tracking-wider text-slate-900">MTs AL-GHOZALY SIWATU</h1>
+                <p class="text-xs text-slate-600 mt-0.5">Siwatu, Kec. Watumalang, Kabupaten Wonosobo, Jawa Tengah</p>
+                <h2 class="text-base font-bold text-teal-800 mt-2 uppercase tracking-wide">AGENDA & KEGIATAN RESMI MADRASAH</h2>
+                <p class="text-xs text-slate-500 font-medium">Laporan Pemakaian Sarana & Alokasi Ruangan Khusus</p>
+            </div>
         </div>
 
         <table class="w-full border-collapse border border-slate-800 text-xs">
@@ -81,10 +100,10 @@
             </div>
             <div class="text-center">
                 <p>Mengetahui,</p>
-                <p>Kepala Sekolah,</p>
+                <p>Kepala Madrasah,</p>
                 <div class="h-14"></div>
-                <p class="font-bold underline">( Dr. H. Mulyadi, M.Pd )</p>
-                <p>NIP. 196805121994031002</p>
+                <p class="font-bold underline">( Hj. Khusnul Khotimah, Alhafidzoh, M.Pd. )</p>
+                <p>NIP. 197711262007102001</p>
             </div>
         </div>
     </div>

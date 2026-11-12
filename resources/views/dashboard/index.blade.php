@@ -4,18 +4,27 @@
 
 @section('content')
 <div class="space-y-6">
-    <!-- Header -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div>
-            <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Sistem Jadwal Pelajaran & Deteksi Bentrok</h2>
-            <p class="text-sm text-slate-500 mt-1">Kelola data master, jadwal kegiatan belajar mengajar, ujian, dan pemantauan bentrok jadwal secara otomatis.</p>
+    <!-- Hero Header Banner -->
+    <div class="bg-gradient-to-r from-[#063b1c] via-[#0a5228] to-[#042210] rounded-2xl p-6 text-white shadow-lg border border-emerald-800/60 flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative overflow-hidden">
+        <img src="{{ asset('images/logo.png') }}" alt="" class="absolute -right-4 -bottom-6 w-44 h-44 object-contain opacity-10 pointer-events-none select-none">
+        <div class="flex items-center space-x-4 relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-white/10 p-2 border border-amber-400/40 flex items-center justify-center flex-shrink-0 shadow-md">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo Miftahul Huda Siwatu" class="w-full h-full object-contain drop-shadow">
+            </div>
+            <div>
+                <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-amber-300 bg-amber-400/15 border border-amber-400/30 px-2.5 py-0.5 rounded-full mb-1">
+                    Yayasan Miftahul Huda Siwatu Wonosobo
+                </span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Sistem Jadwal Pelajaran MTs Al-Ghozaly</h2>
+                <p class="text-xs sm:text-sm text-emerald-100/85 mt-0.5">Kelola data master, jadwal KBM, ujian, serta pemantauan bentrok jadwal otomatis.</p>
+            </div>
         </div>
-        <div class="flex items-center space-x-2">
-            <a href="{{ route('jadwal-pelajaran.create') }}" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm shadow-md shadow-teal-600/20 transition">
+        <div class="flex items-center space-x-2.5 relative z-10">
+            <a href="{{ route('jadwal-pelajaran.create') }}" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm shadow-md transition">
                 <i class="fa-solid fa-plus mr-2"></i> Input Jadwal Baru
             </a>
-            <a href="{{ route('log-bentrok.index') }}" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold text-sm border border-rose-200 transition">
-                <i class="fa-solid fa-triangle-exclamation mr-2"></i> Log Bentrok ({{ $stats['log_bentrok'] }})
+            <a href="{{ route('log-bentrok.index') }}" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/20 transition">
+                <i class="fa-solid fa-triangle-exclamation text-amber-300 mr-2"></i> Log Bentrok ({{ $stats['log_bentrok'] }})
             </a>
         </div>
     </div>

@@ -100,12 +100,16 @@
                 <select name="id_guru" id="select_guru" required class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500">
                     <option value="">-- Pilih Guru Pengajar --</option>
                     @foreach($guruList as $g)
-                        <option value="{{ $g->id_guru }}" {{ old('id_guru') == $g->id_guru ? 'selected' : '' }}>
-                            {{ $g->nama }} (NIP: {{ $g->nip }})
+                        @php
+                            $mapelIds = $g->mataPelajaran->pluck('id_mapel')->values()->all();
+                            $mapelNames = $g->mataPelajaran->pluck('nama_mapel')->join(', ');
+                        @endphp
+                        <option value="{{ $g->id_guru }}" data-mapel-ids='@json($mapelIds)' {{ old('id_guru') == $g->id_guru ? 'selected' : '' }}>
+                            {{ $g->nama }} — Mengajar: {{ $mapelNames ?: 'Belum diatur' }}
                         </option>
                     @endforeach
                 </select>
-                <p class="text-[11px] text-slate-400 mt-1">Sistem otomatis menolak jika guru sudah memiliki jadwal di kelas lain pada jam yang sama.</p>
+                <p id="guru_filter_hint" class="text-[11px] text-slate-400 mt-1">Sistem otomatis menolak jika guru sudah memiliki jadwal di kelas lain pada jam yang sama.</p>
             </div>
 
             <!-- Ruang Kelas / Lab -->
@@ -130,5 +134,52 @@
         </form>
     </div>
 </div>
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const selectMapel = document.getElementById('select_mapel');
+    const selectGuru = document.getElementById('select_guru');
+    const hint = document.getElementById('guru_filter_hint');
+
+    if (!selectMapel || !selectGuru) return;
+
+    function filterGuruByMapel(autoSelectSingle = false) {
+        const mapelId = parseInt(selectMapel.value, 10);
+        const options = Array.from(selectGuru.querySelectorAll('option[data-mapel-ids]'));
+        let matched = [];
+
+        options.forEach(opt => {
+            const ids = JSON.parse(opt.getAttribute('data-mapel-ids') || '[]');
+            if (!mapelId || ids.includes(mapelId)) {
+                opt.hidden = false;
+                if (mapelId) matched.push(opt);
+            } else {
+                opt.hidden = true;
+            }
+        });
+
+        if (mapelId && matched.length > 0) {
+            hint.textContent = `Menampilkan ${matched.length} guru pengampu untuk mata pelajaran yang dipilih.`;
+            hint.className = 'text-[11px] text-teal-600 font-medium mt-1';
+            if (autoSelectSingle && matched.length === 1) {
+                selectGuru.value = matched[0].value;
+            } else if (selectGuru.selectedOptions[0]?.hidden) {
+                selectGuru.value = '';
+            }
+        } else {
+            options.forEach(opt => opt.hidden = false);
+            hint.textContent = 'Sistem otomatis menolak jika guru sudah memiliki jadwal di kelas lain pada jam yang sama.';
+            hint.className = 'text-[11px] text-slate-400 mt-1';
+        }
+    }
+
+    selectMapel.addEventListener('change', () => filterGuruByMapel(true));
+    if (selectMapel.value) {
+        filterGuruByMapel(false);
+    }
+});
+</script>
+@endpush
 @endsection
 
