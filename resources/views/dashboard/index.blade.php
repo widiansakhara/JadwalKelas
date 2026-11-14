@@ -5,22 +5,22 @@
 @section('content')
 <div class="space-y-6">
     <!-- Hero Header Banner -->
-    <div class="bg-gradient-to-r from-[#063b1c] via-[#0a5228] to-[#042210] rounded-2xl p-6 text-white shadow-lg border border-emerald-800/60 flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative overflow-hidden">
+    <div class="bg-gradient-to-r from-teal-700 via-teal-800 to-slate-900 rounded-2xl p-6 text-white shadow-lg border border-teal-700/50 flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative overflow-hidden">
         <img src="{{ asset('images/logo.png') }}" alt="" class="absolute -right-4 -bottom-6 w-44 h-44 object-contain opacity-10 pointer-events-none select-none">
         <div class="flex items-center space-x-4 relative z-10">
-            <div class="w-16 h-16 rounded-2xl bg-white/10 p-2 border border-amber-400/40 flex items-center justify-center flex-shrink-0 shadow-md">
+            <div class="w-16 h-16 rounded-2xl bg-white/10 p-2 border border-teal-400/40 flex items-center justify-center flex-shrink-0 shadow-md">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo Miftahul Huda Siwatu" class="w-full h-full object-contain drop-shadow">
             </div>
             <div>
-                <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-amber-300 bg-amber-400/15 border border-amber-400/30 px-2.5 py-0.5 rounded-full mb-1">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-teal-200 bg-teal-500/20 border border-teal-400/30 px-2.5 py-0.5 rounded-full mb-1">
                     Yayasan Miftahul Huda Siwatu Wonosobo
                 </span>
                 <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Sistem Jadwal Pelajaran MTs Al-Ghozaly</h2>
-                <p class="text-xs sm:text-sm text-emerald-100/85 mt-0.5">Kelola data master, jadwal KBM, ujian, serta pemantauan bentrok jadwal otomatis.</p>
+                <p class="text-xs sm:text-sm text-teal-100/90 mt-0.5">Kelola data master, jadwal KBM, ujian, serta pemantauan bentrok jadwal otomatis.</p>
             </div>
         </div>
         <div class="flex items-center space-x-2.5 relative z-10">
-            <a href="{{ route('jadwal-pelajaran.create') }}" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm shadow-md transition">
+            <a href="{{ route('jadwal-pelajaran.create') }}" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-white font-bold text-xs sm:text-sm shadow-md transition">
                 <i class="fa-solid fa-plus mr-2"></i> Input Jadwal Baru
             </a>
             <a href="{{ route('log-bentrok.index') }}" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/20 transition">

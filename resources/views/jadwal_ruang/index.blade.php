@@ -110,11 +110,11 @@
                 <table class="w-full border-collapse min-w-[700px]">
                     <thead>
                         <tr>
-                            <th class="p-3 bg-[#052e16] text-amber-300 rounded-tl-xl text-xs font-bold uppercase tracking-wider text-center w-28">
+                            <th class="p-3 bg-slate-900 text-white rounded-tl-xl text-xs font-bold uppercase tracking-wider text-center w-28">
                                 Jam / Waktu
                             </th>
                             @foreach($hariList as $h)
-                                <th class="p-3 bg-[#073b1d] text-white text-xs font-bold uppercase tracking-wider text-center border-l border-emerald-800/80">
+                                <th class="p-3 bg-slate-800 text-white text-xs font-bold uppercase tracking-wider text-center border-l border-slate-700">
                                     {{ $h }}
                                 </th>
                             @endforeach

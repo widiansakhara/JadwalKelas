@@ -6,42 +6,6 @@
     <title>Portal Jadwal Siswa & Orang Tua - MTs Al-Ghozaly Miftahul Huda Siwatu</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        teal: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#16a34a',
-                            600: '#15803d',
-                            700: '#166534',
-                            800: '#14532d',
-                            900: '#064e3b',
-                            950: '#052e16',
-                        },
-                        emerald: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#16a34a',
-                            600: '#15803d',
-                            700: '#166534',
-                            800: '#14532d',
-                            900: '#064e3b',
-                            950: '#052e16',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,15 +19,15 @@
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar -->
-    <header class="bg-white border-b border-emerald-100 sticky top-0 z-30 shadow-xs">
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 py-2.5 flex items-center justify-between">
             <div class="flex items-center space-x-3.5">
-                <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shadow-xs">
+                <div class="w-12 h-12 rounded-xl bg-teal-50 border border-teal-200 p-1 flex items-center justify-center shadow-xs">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo Miftahul Huda Siwatu" class="w-full h-full object-contain">
                 </div>
                 <div>
                     <h1 class="font-extrabold text-sm sm:text-base text-slate-900 leading-tight">Portal Jadwal Siswa & Wali Murid</h1>
-                    <p class="text-[11px] text-teal-700 font-bold">MTs Al-Ghozaly — Yayasan Miftahul Huda Siwatu Wonosobo</p>
+                    <p class="text-[11px] text-teal-600 font-bold">MTs Al-Ghozaly — Yayasan Miftahul Huda Siwatu Wonosobo</p>
                 </div>
             </div>
 
@@ -79,23 +43,23 @@
     <main class="flex-1 max-w-6xl w-full mx-auto p-4 sm:p-6 space-y-6">
 
         <!-- Banner & Selector -->
-        <div class="bg-gradient-to-br from-[#063b1c] via-[#0b5228] to-[#042210] rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-emerald-800/60 relative overflow-hidden">
+        <div class="bg-gradient-to-r from-teal-700 via-teal-800 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-teal-700/50 relative overflow-hidden">
             <img src="{{ asset('images/logo.png') }}" alt="" class="absolute -right-6 -bottom-6 w-64 h-64 object-contain opacity-15 pointer-events-none select-none">
 
             <div class="relative z-10 max-w-2xl">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40 mb-3">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-200 border border-teal-400/30 mb-3">
                     <i class="fa-regular fa-calendar mr-1.5"></i> Tahun Ajaran {{ $tahunTerpilih?->tahun }} (Semester {{ $tahunTerpilih?->semester }})
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">Selamat Datang di Portal Jadwal</h2>
-                <p class="text-emerald-100/90 text-xs sm:text-sm mt-2 leading-relaxed">
-                    Siswa dan Wali Murid <strong class="text-amber-300">MTs Al-Ghozaly Miftahul Huda Siwatu</strong> dapat mengecek jadwal pelajaran kelas, jadwal ujian (UTS/UAS), dan agenda kegiatan madrasah secara langsung dan akurat.
+                <p class="text-teal-100 text-xs sm:text-sm mt-2 leading-relaxed">
+                    Siswa dan Wali Murid <strong class="text-teal-200">MTs Al-Ghozaly Miftahul Huda Siwatu</strong> dapat mengecek jadwal pelajaran kelas, jadwal ujian (UTS/UAS), dan agenda kegiatan madrasah secara langsung dan akurat.
                 </p>
 
                 <!-- Class Selector Form -->
                 <form action="{{ route('portal.siswa') }}" method="GET" class="mt-6 flex flex-wrap items-center gap-3">
                     <div class="w-full sm:w-72">
-                        <label class="block text-[10px] font-bold uppercase tracking-wider text-amber-300 mb-1">Pilih Kelas Siswa:</label>
-                        <select name="id_kelas" onchange="this.form.submit()" class="w-full px-4 py-2.5 rounded-xl bg-white text-slate-900 font-bold text-sm shadow-md border-0 focus:outline-none focus:ring-2 focus:ring-amber-400">
+                        <label class="block text-[10px] font-bold uppercase tracking-wider text-teal-200 mb-1">Pilih Kelas Siswa:</label>
+                        <select name="id_kelas" onchange="this.form.submit()" class="w-full px-4 py-2.5 rounded-xl bg-white text-slate-900 font-bold text-sm shadow-md border-0 focus:outline-none focus:ring-2 focus:ring-teal-400">
                             @foreach($kelasList as $k)
                                 <option value="{{ $k->id_kelas }}" {{ $idKelas == $k->id_kelas ? 'selected' : '' }}>
                                     Kelas {{ $k->nama_kelas }} ({{ $k->jurusan }})
@@ -106,7 +70,7 @@
 
                     @if($kelasTerpilih)
                         <div class="self-end">
-                            <a href="{{ route('portal.siswa.cetak', ['id_kelas' => $idKelas, 'id_tahun_ajaran' => $idTahunAjaran]) }}" target="_blank" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs shadow-md transition">
+                            <a href="{{ route('portal.siswa.cetak', ['id_kelas' => $idKelas, 'id_tahun_ajaran' => $idTahunAjaran]) }}" target="_blank" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-teal-500/30 hover:bg-teal-500/50 text-white font-bold text-xs border border-teal-400/30 shadow-md transition">
                                 <i class="fa-solid fa-print mr-2"></i> Cetak Jadwal Kelas
                             </a>
                         </div>
@@ -177,14 +141,14 @@
                     <table class="w-full border-collapse min-w-[750px]">
                         <thead>
                             <tr>
-                                <th class="p-3 bg-[#052e16] text-amber-300 rounded-tl-xl text-xs font-bold uppercase tracking-wider text-center w-28">
+                                <th class="p-3 bg-slate-900 text-white rounded-tl-xl text-xs font-bold uppercase tracking-wider text-center w-28">
                                     Jam / Waktu
                                 </th>
                                 @foreach($hariList as $h)
-                                    <th class="p-3 {{ $h == $hariIni ? 'bg-teal-600' : 'bg-[#073b1d]' }} text-white text-xs font-bold uppercase tracking-wider text-center border-l border-emerald-800/80">
+                                    <th class="p-3 {{ $h == $hariIni ? 'bg-teal-700' : 'bg-slate-800' }} text-white text-xs font-bold uppercase tracking-wider text-center border-l border-slate-700">
                                         {{ $h }}
                                         @if($h == $hariIni)
-                                            <span class="block text-[9px] font-bold text-amber-300">(Hari Ini)</span>
+                                            <span class="block text-[9px] font-bold text-teal-200">(Hari Ini)</span>
                                         @endif
                                     </th>
                                 @endforeach
